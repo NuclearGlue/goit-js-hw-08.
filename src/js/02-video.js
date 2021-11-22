@@ -9,7 +9,7 @@ player.on('timeupdate', throttle(() => {
     player.getCurrentTime().then(function (seconds) {
         localStorage.setItem('videoplayer-current-time', seconds);
 
-        console.log(localStorage.getItem('videoplayer-current-time'));
+        
 }).catch(function(error) {
    
 });
