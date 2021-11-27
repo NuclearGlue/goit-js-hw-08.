@@ -19,12 +19,26 @@ function formInfo() {
     localStorage.setItem('feedback-form-state', JSON.stringify(formList));
               
 }
+const redoData = JSON.parse(localStorage.getItem('feedback-form-state'));
+function pageUpdate() {
 
+if (redoData === null) {
+    inputForm.email.value = redoData.email;
+    inputForm.message.value = redoData.message;
+}
+else {
+inputForm.email.value = '';
+    inputForm.message.textContent = '';
+
+     
+}
+}
+pageUpdate();
 inputForm.addEventListener('submit', formSend)
 
 function formSend(event) {
     event.preventDefault();
-    console.log(localStorage.getItem('feedback-form-state'));
+    console.log(formList);
     localStorage.clear();
     event.currentTarget.reset();
 }
