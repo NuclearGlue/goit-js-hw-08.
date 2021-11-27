@@ -5,7 +5,7 @@ let formList = {};
 
 inputForm.addEventListener('input', throttle(formInfo, 500));
 inputForm.addEventListener('input', addObject)
-
+inputForm.addEventListener('submit', formSend);
 function addObject(event) {
     const  {
         elements: { email, message }
@@ -32,14 +32,13 @@ inputForm.email.value = '';
     inputForm.message.textContent = '';
 }
 }
-pageUpdate();
 
-inputForm.addEventListener('submit', formSend)
 
 function formSend(event) {
     event.preventDefault();
-    console.log(redoData);
+    console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
     localStorage.clear();
     event.currentTarget.reset();
 }
 
+pageUpdate();
